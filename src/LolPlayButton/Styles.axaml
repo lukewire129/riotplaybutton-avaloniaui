@@ -1,0 +1,131 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Styles.Resources>
+        <LinearGradientBrush x:Key="ArrowStroke" StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Color="#CC3FE7FF" Offset="0" />
+            <GradientStop Color="#CC006D7D" Offset="0.5" />
+            <GradientStop Color="#CC0493A7" Offset="1" />
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ArrowStrokeOver" StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Color="#FFAFF5FF" Offset="0" />
+            <GradientStop Color="#FF46E6FF" Offset="0.5" />
+            <GradientStop Color="#FF00ADD4" Offset="1" />
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ArrowFillOver" StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Color="#FF1D3B4A" Offset="0" />
+            <GradientStop Color="#FF082734" Offset="1" />
+        </LinearGradientBrush>
+    </Styles.Resources>
+    <Design.PreviewWith>
+       <ToggleButton></ToggleButton>
+    </Design.PreviewWith>
+    <Style Selector="ToggleButton">
+        <Setter Property="Height" Value="38" />
+        <Setter Property="Width" Value="165" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="{x:Type ToggleButton}">
+                <Grid Background="{TemplateBinding Background}">
+                    <Border x:Name="PART_GoldLine"/>
+                    <Image x:Name="PART_Emblem" RenderOptions.BitmapInterpolationMode="HighQuality">
+                    </Image>
+                    <Border x:Name="PART_GreenLine"/>
+                    <Path x:Name="PART_Path"  />
+                    <Grid>
+                        <Grid.Clip>
+                            <RectangleGeometry Rect="0,5,165,28" />
+                        </Grid.Clip>
+                        <TextBlock x:Name="PART_Play"/>
+                        <TextBlock x:Name="PART_Stop"/>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/ Border#PART_GoldLine">
+            <Setter Property="Background" Value="#00070E" />
+            <Setter Property="BorderBrush" Value="#34291E" />
+            <Setter Property="BorderThickness" Value="1 1 1 1" />
+            <Setter Property="Margin" Value="10 0 0 0" />
+        </Style>
+        
+        <Style Selector="^ /template/ Image#PART_Emblem">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Source" Value="Images/logo.png"/>
+            <Setter Property="Height" Value="38" />
+        </Style>
+        
+        <Style Selector="^ /template/ Border#PART_GreenLine">
+            <Setter Property="Background" Value="#1E2328" />
+            <Setter Property="BorderBrush" Value="#09343D" />
+            <Setter Property="BorderThickness" Value="2 2 2 2" />
+            <Setter Property="Margin" Value="50 4 4 4" />
+        </Style>
+
+        <Style Selector="^ /template/ TextBlock#PART_Play">
+            <Setter Property="Text" Value="PLAY" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="30 0 0 0" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <ThicknessTransition Property="Margin" Duration="0:0:0.5" Easing="CubicEaseInOut"/>
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="^ /template/ TextBlock#PART_Stop">
+            <Setter Property="Text" Value="STOP" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="30 0 0 100" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <ThicknessTransition Property="Margin" Duration="0:0:0.5" Easing="CubicEaseInOut"/>
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="^ /template/ Path#PART_Path">
+            <Setter Property="Fill" Value="#1E2328" />
+            <Setter Property="Stroke" Value="{StaticResource ArrowStroke}" />
+            <Setter Property="StrokeThickness" Value="2" />
+            <Setter Property="Data" Value="M 0,0 L 103,0 L 118,14 L 103,28 L 0,28 C 10,14 0,0 0,0 Z" />
+            <Setter Property="Margin" Value="40 5 4 -5" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowDirectionEffect BlurRadius="5" ShadowDepth="2.0" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground" Value="#FFFCF1DC"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style Selector="^ /template/ Path#PART_Path">
+                <Setter Property="Fill" Value="{StaticResource ArrowFillOver}"/>
+                <Setter Property="Stroke" Value="{StaticResource ArrowStrokeOver}"/>
+            </Style>
+        </Style>
+        
+        <Style Selector="^:checked">
+            <Setter Property="Foreground" Value="#3C3C41"/>
+            <Style Selector="^ /template/ Path#PART_Path">
+                <Setter Property="Fill" Value="#1E2328"/>
+                <Setter Property="Stroke" Value="#5C5B57"/>
+            </Style>
+            <Style Selector="^ /template/ TextBlock#PART_Play">
+                <Setter Property="Margin" Value="30 100 0 0"/>
+            </Style>
+            <Style Selector="^ /template/ TextBlock#PART_Stop">
+                <Setter Property="Margin" Value="30 0 0 0"/>
+            </Style>
+        </Style>
+    </Style>
+</Styles>
