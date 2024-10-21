@@ -3,8 +3,10 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="DemoApp/DemoApp/Views/MainView.axaml" value="DemoApp/DemoApp.Browser/DemoApp.Browser.csproj" />
         <entry key="LolPlayButton/App.axaml" value="LolPlayButton/LolPlayButton.csproj" />
-        <entry key="LolPlayButton/Styles.axaml" value="LolPlayButton/LolPlayButton.csproj" />
+        <entry key="LolPlayButton/MainWindow.axaml" value="DemoApp/DemoApp.Browser/DemoApp.Browser.csproj" />
+        <entry key="LolPlayButton/Styles.axaml" value="DemoApp/DemoApp.Browser/DemoApp.Browser.csproj" />
       </map>
     </option>
   </component>

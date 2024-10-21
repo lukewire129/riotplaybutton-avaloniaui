@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace LolPlayButton;
+namespace DemoApp.Views;
 
 public partial class MainWindow : Window
 {

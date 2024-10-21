@@ -2,8 +2,13 @@
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
 
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**"/>
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.1.4" />
@@ -11,16 +16,10 @@
         <PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.4" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.4" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
     </ItemGroup>
 
-
     <ItemGroup>
-      <Folder Include="Images\" />
-    </ItemGroup>
-
-
-    <ItemGroup>
-      <None Remove="Images\logo.png" />
-      <AvaloniaResource Include="Images\logo.png" />
+      <ProjectReference Include="..\..\LolPlayButton\LolPlayButton.csproj" />
     </ItemGroup>
 </Project>
